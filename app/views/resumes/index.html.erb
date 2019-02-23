@@ -1,0 +1,39 @@
+<head>
+<style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</style>
+</head>
+
+<%= link_to "New Resume", new_resume_path, class: "btn btn-primary" %>
+<br />
+<br />
+
+<div class="album py-5 bg-light">
+    <div class="container">
+
+      <% @resumes.each do |resume| %>
+         
+        
+
+<div class="row" >
+        <div class="col-md-4" style="position:relatives;left:50px;">
+          <div class="card mb-4 shadow-sm">
+            <img src="<%= resume.attachment %>" style="width:30%;height:30%;"/>
+            <div class="card-body">
+              <p class="card-text">Title:<%= resume.title %><br>Category:<%= resume.category %><br>Release year<%= resume.year %><br>Price<%= resume.price %><br>
+              
+<%= link_to 'Edit', edit_resume_path(resume) %>
+<%= link_to 'Show', resume %>
+<%= link_to 'Destroy', resume, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+              </p>
+              <div class="d-flex justify-content-between align-items-center">
+                
+               
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+
+        
