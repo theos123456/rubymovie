@@ -1,39 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Inline" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Inline|Bungee+Shade" rel="stylesheet">
+
 <head>
 <style>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+* {
+  box-sizing: border-box;
+}
+html, body, {
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+      object-fit: cover;
+      background-color:#2f432f;
+
+}
+footer{
+  background:black;
+  position:relative;
+  top:70px;
+  height:50px;
+  color:white;
+}
+.grid-container {
+  display: grid;
+  width:100%;
+  grid-template-columns:190px 190px 190px 190px 190px;
+  padding:0px;
+  grid-gap:20px;
+  position:relative;
+  top:60px;
+  left:10px;
+  
+
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  height:250px;
+  font-size: 30px;
+  text-align: center;
+  -webkit-box-shadow: -11px -8px 24px -11px rgba(15,10,15,1);
+-moz-box-shadow: -11px -8px 24px -11px rgba(15,10,15,1);
+box-shadow: -11px -8px 24px -11px rgba(15,10,15,1);
+position:relative;
+background:#889977;
+
+
+}
+
+   h1
+   {
+    color:red;
+    opacity:0.7;
+    text-decoration:none;
+    padding:50px;
+    font-size:25px;
+    position:relative;
+    top:-10px;
+text-align:center;    
+
+font-family: 'Bungee Inline', cursive;
+font-family: 'Bungee Shade', cursive;
+  }
+  img:hover {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  }
+  header{
+    background:black;
+    height:80px;
+    width:100%;
+    position:relative;
+    top:-30px;
+  }
+  a
+  {
+    border:3px 2px solid gray;
+    color:black;
+  }
 </style>
 </head>
+<body style="background-color:#2f432f;">
 
-<%= link_to "New Resume", new_resume_path, class: "btn btn-primary" %>
-<br />
-<br />
+<header><h1>Jorah Movie Market</h1></header>
 
-<div class="album py-5 bg-light">
-    <div class="container">
-
-      <% @resumes.each do |resume| %>
-         
-        
-
-<div class="row" >
-        <div class="col-md-4" style="position:relatives;left:50px;">
-          <div class="card mb-4 shadow-sm">
-            <img src="<%= resume.attachment %>" style="width:30%;height:30%;"/>
-            <div class="card-body">
-              <p class="card-text">Title:<%= resume.title %><br>Category:<%= resume.category %><br>Release year<%= resume.year %><br>Price<%= resume.price %><br>
+<%= link_to "Add movie", new_resume_path, class: "btn btn-primary" %>
+<div class="grid-container">
+<% @resumes.each do |resume| %>
+  <div class="grid-item"><img src="<%= resume.attachment %>" style="width:100%;height:80%;padding:20px"/> <p class="card-text" style="color:green;">Title:<b><%= resume.title %></b><br>
               
 <%= link_to 'Edit', edit_resume_path(resume) %>
 <%= link_to 'Show', resume %>
 <%= link_to 'Destroy', resume, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-              </p>
-              <div class="d-flex justify-content-between align-items-center">
-                
-               
-              </div>
-            </div>
-          </div>
-        </div>
-        <% end %>
-
+</div>
+  <% end %>  
+</div>
+<footer>
+  <center><p>all right reserved by theoneste@2019 <a href="mailto:byahutangaza@gmail.com">jorah@jorahmovie.com</a>.</p></center>
+</footer>
+</body>
+</html>
         
